@@ -23,7 +23,7 @@
                     </a>
                 </span>
                 <span>
-                    <a href="https://app.mpowerpromo.com" target=""
+                    <a href="https://app.thesqueegeeshop.com" target=""
                         class="nav-link d-lg-none btn btn-outline-primary btn-block mb-3">
                         Sign In
                     </a>
@@ -109,7 +109,7 @@
             </ul>
         </div>
         <div class="col-6 px-0 col-lg-3 d-flex align-items-center justify-content-end">
-            <span><a href="https://app.mpowerpromo.com" target="_blank" name="link" alt="link"
+            <span><a href="https://app.thesqueegeeshop.com" target="_blank" name="link" alt="link"
                     class="btn btn-link d-none d-sm-inline-block">
 
                     Sign In

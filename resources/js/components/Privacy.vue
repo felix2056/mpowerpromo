@@ -64,7 +64,7 @@
                 date listed above. Further, if we deem any change material in our sole and
                 absolute discretion, we may post a related notice in our software and/or
                 contact you by electronic mail. Regardless, your continued use of our
-                websites, including without limitation mpowerpromo.com, app.mpowerpromo.com,
+                websites, including without limitation mpowerpromo.com, app.thesqueegeeshop.com,
                 and related sites (collectively, the “Websites”), and/or any of
                 our Services (as that term is defined on our Terms of Service), shall
                 constitute your acceptance of any revisions we make.
