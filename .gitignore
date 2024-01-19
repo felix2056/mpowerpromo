@@ -1,6 +1,15 @@
 /node_modules
 /public/hot
 /public/storage
+
+# remove all folders from /public/stores except example
+/public/stores/*
+!/public/stores/example
+
+# remove all folders from /resources/views/stores except example
+/resources/views/stores/*
+!/resources/views/stores/example
+
 /storage/*.key
 /vendor
 .env
