@@ -13,34 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::domain('{subdomain}.' . env('APP_DOMAIN'))->group(function () {
-//     Route::get('/', 'StoreController@index');
-
-//     Route::get('/{pageSlug}', 'PageController@show');
-// });
-
-// Route::domain('teststore.mpowerpromo.localhost')->group(function () {
-//     Route::get('/', function () {
-//         return response()->json([
-//             'message' => 'Welcome to teststore!',
-//             'store' => 'teststore',
-//             'domain' => env('APP_DOMAIN')
-//         ], 200);
-//     });
-// });
-
 Route::domain('{subdomain}.mpowerpromo.localhost')->group(function () {
-    Route::any('{all}', 'SubdomainController@handle')->where('all', '.*');
+    Route::group(['middleware' => 'set.tenant.connection'], function () {
+        Route::get('/', 'StoreController@index');
+        Route::get('/{pageSlug}', 'PageController@show');
+        Route::get('/{pageSlug}/{productSlug}', 'ProductController@show');
+    });
 });
 
-// Route::domain('{subdomain}.mpowerpromo.localhost')->group(function () {
-//     Route::any('{all}', function ($subdomain) {
-//         return app(\App\Http\Middleware\SubdomainMiddleware::class)->handle($request, function ($subdomain) {
-//             // Handle subdomain routing here
-//         });
-//     });
-// });
-
-
-Route::get('/publish-theme-assets', 'HomeController@publishThemeAssets');
+Route::post('/deploy-tenant-store', 'HomeController@deployTenantStore');
 Route::get('/{any}', 'HomeController@index')->where('any', '.*');

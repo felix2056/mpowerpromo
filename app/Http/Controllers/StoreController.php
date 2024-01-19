@@ -2,29 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HeadTag;
 use App\Models\Store;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
 
 class StoreController extends Controller
 {
-    public function index($subdomain)
+    public $store;
+
+    public function __construct()
     {
-        $store = Store::with(['themes' => function ($query) {
-            $query->where('is_published', true);
-        }])
-        ->where('subdomain', $subdomain)->first();
+        // $this->middleware('set.tenant.connection');
+        $fulldomain = request()->getHost();
+        $subdomain = explode('.', $fulldomain)[0];
+        
+        $store = Store::where('subdomain', $subdomain)->first();
+        if (!$store)  return abort(404);
 
-        if (!$store) {
-            return abort(404);
-        }
+        $this->store = $store;
+    }
 
-        $fulldomain = str_replace('.', '_', $store->subdomain . '.' . $store->domain);
+    public function index()
+    {
+        $subdomain = $this->store->subdomain;
+        $host = str_replace('.', '_', $this->store->subdomain . '.' . $this->store->domain);
 
-        return view("stores.$fulldomain.index", [
-            'store' => $store,
+        $headTag = HeadTag::first();
+
+        return view("stores.$subdomain.index", [
+            'store' => $this->store,
+            'headTag' => $headTag,
+            'subdomain' => $subdomain,
+            'host' => $host,
             // load assets from the store theme
-            'path' => asset("stores/$fulldomain")
+            'public_path' => asset("stores/$host")
         ]);
     }
 }

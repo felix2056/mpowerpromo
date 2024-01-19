@@ -22,10 +22,10 @@
     <link isbootstrap="true" tagtype="link" description="Bootstrap Theme" href="https://store-media.mpowerpromo.com/5e4ef2d67141a025da688296/assets/bootstrap/1666708587160.min.css" rel="stylesheet" settings="[object Object]" keyid="8895" deffer="true">
     <link rel="canonical" href="https://mpowerpromo.com" deffer="true">
 
-    <link rel="stylesheet" href="css/app.ebfd82b.css">
-    <link rel="stylesheet" href="css/app.70a48db.css">
-    <link rel="stylesheet" href="css/0.2f84e95.css">
-    <link rel="stylesheet" href="css/unsaved-box-item.92cca3c.css">
+    <link rel="stylesheet" href="/css/app.ebfd82b.css">
+    <link rel="stylesheet" href="/css/app.70a48db.css">
+    <link rel="stylesheet" href="/css/0.2f84e95.css">
+    <link rel="stylesheet" href="/css/unsaved-box-item.92cca3c.css">
 
     <link description="fontawesome.min.css" rel="stylesheet" external="true" keyid="9202" href="https://fa.mpowerpromo.com/css/all.css" extension="css" deffer="true" data-body="true">
     <link description="Google Fonts - Roboto" rel="stylesheet" external="true" keyid="5242" href="https://fonts.googleapis.com/css?family=Roboto:400,700" extension="css" deffer="true" data-body="true">

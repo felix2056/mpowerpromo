@@ -5,11 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Hyn\Tenancy\Traits\UsesTenantConnection;
+
 class Store extends Model
 {
-    use HasFactory;
+    use HasFactory, UsesTenantConnection;
 
     protected $guarded = [];
+
+    protected $appends = [
+        'host',
+        'underscore_host',
+        'logo_url',
+        'directory'
+    ];
+
+    public function headTags()
+    {
+        return $this->hasMany(HeadTag::class);
+    }
 
     public function products()
     {
@@ -46,13 +60,28 @@ class Store extends Model
         return $this->hasMany(StoreUrl::class);
     }
 
-    public function themes()
+    public function getHostAttribute()
     {
-        return $this->hasMany(StoreTheme::class);
+        return $this->subdomain . '.' . $this->domain;
     }
 
-    public function getFullDomainAttribute()
+    public function getUnderscoreHostAttribute()
     {
-        return $this->subdomain . '.' . env('APP_DOMAIN');
+        return str_replace('.', '_', $this->host);
+    }
+
+    public function getPathAttribute()
+    {
+        return asset('/stores/' . $this->subdomain);
+    }
+
+    public function getLogoUrlAttribute()
+    {
+        return $this->logo ? config('app.dashboard_url') . '/storage/' . $this->logo : null;
+    }
+
+    public function getDirectoryAttribute()
+    {
+        return asset('storage/stores/' . $this->host);
     }
 }

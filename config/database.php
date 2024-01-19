@@ -63,24 +63,19 @@ return [
             ]) : [],
         ],
 
-        'tenant' => [
+        'system' => [
             'driver' => 'mysql',
-            'url' => env('TENANT_DATABASE_URL'),
-            'host' => env('TENANT_DB_HOST', '127.0.0.1'),
-            'port' => env('TENANT_DB_PORT', '3306'),
-            'database' => null,
-            'username' => env('TENANT_DB_USERNAME', 'forge'),
-            'password' => env('TENANT_DB_PASSWORD', ''),
-            'unix_socket' => env('TENANT_DB_SOCKET', ''),
+            'host' => env('TENANCY_HOST', '127.0.0.1'),
+            'port' => env('TENANCY_PORT', '3306'),
+            'database' => env('TENANCY_DATABASE', 'tenancy'),
+            'username' => env('TENANCY_USERNAME', 'tenancy'),
+            'password' => env('TENANCY_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
-            'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],
         ],
 
         'pgsql' => [
