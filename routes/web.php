@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::domain('{subdomain}.' . config('app.url'))->group(function () {
+Route::domain('{subdomain}.thesqueegeeshop.com')->group(function () {
+// Route::domain('{subdomain}.' . config('app.url'))->group(function () {
     Route::group(['middleware' => 'set.tenant.connection'], function () {
         Route::get('', 'StoreController@index');
         Route::get('{pageSlug}', 'PageController@show');
