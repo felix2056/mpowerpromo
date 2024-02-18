@@ -27,12 +27,12 @@ class StoreController extends Controller
 
     public function index()
     {
-        return response()->json([
-            'store' => $this->store,
-            'host' => request()->getHost(),
-            'fulldomain' => $this->store->subdomain . '.' . $this->store->domain
-        ], 200);
-        
+        // return response()->json([
+        //     'store' => $this->store,
+        //     'host' => request()->getHost(),
+        //     'fulldomain' => $this->store->subdomain . '.' . $this->store->domain
+        // ], 200);
+
         $subdomain = $this->store->subdomain;
         $host = str_replace('.', '_', $this->store->subdomain . '.' . $this->store->domain);
 
