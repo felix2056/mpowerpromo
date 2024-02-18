@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::domain('{subdomain}.mpowerpromo.localhost')->group(function () {
+Route::domain('{subdomain}.' . config('app.url'))->group(function () {
     Route::group(['middleware' => 'set.tenant.connection'], function () {
-        Route::get('/', 'StoreController@index');
-        Route::get('/{pageSlug}', 'PageController@show');
-        Route::get('/{pageSlug}/{productSlug}', 'ProductController@show');
+        Route::get('', 'StoreController@index');
+        Route::get('{pageSlug}', 'PageController@show');
+
+        Route::get('cat/{categorySlug}', 'CategoryController@show');
+        Route::get('products/{productSlug}', 'ProductController@show');
     });
 });
 

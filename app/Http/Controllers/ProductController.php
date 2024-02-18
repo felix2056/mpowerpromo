@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\HeadTag;
-use App\Models\Page;
 use App\Models\Store;
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class ProductController extends Controller
 {
     public $store;
 
@@ -23,18 +22,15 @@ class PageController extends Controller
         $this->store = $store;
     }
 
-    public function show($subdomain, $pageSlug)
+    public function show($subdomain, $productSlug)
     {
         $subdomain = $this->store->subdomain;
         $host = str_replace('.', '_', $this->store->subdomain . '.' . $this->store->domain);
 
-        $page = Page::where('slug', $pageSlug)->first();
-        // if (!$page)  return abort(404);
-
         $headTag = HeadTag::first();
 
-        return view("stores.$subdomain.pages.$pageSlug", [
-            'page' => $page,
+        return view("stores.$subdomain.pages.products.show", [
+            'store' => $this->store,
             'headTag' => $headTag,
             'subdomain' => $subdomain,
             'host' => $host,

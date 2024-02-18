@@ -32,7 +32,7 @@ class StoreController extends Controller
 
         $headTag = HeadTag::first();
 
-        return view("stores.$subdomain.index", [
+        return view("stores.$subdomain.pages.index", [
             'store' => $this->store,
             'headTag' => $headTag,
             'subdomain' => $subdomain,

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\GoogleProductCategory;
 use App\Models\HeadTag;
-use App\Models\Page;
 use App\Models\Store;
-use Illuminate\Http\Request;
 
-class PageController extends Controller
+use Illuminate\Http\Request;
+use RicorocksDigitalAgency\Soap\Facades\Soap;
+
+class CategoryController extends Controller
 {
     public $store;
 
@@ -23,18 +26,19 @@ class PageController extends Controller
         $this->store = $store;
     }
 
-    public function show($subdomain, $pageSlug)
+    public function show($subdomain, $categorySlug)
     {
         $subdomain = $this->store->subdomain;
         $host = str_replace('.', '_', $this->store->subdomain . '.' . $this->store->domain);
 
-        $page = Page::where('slug', $pageSlug)->first();
-        // if (!$page)  return abort(404);
+        $category = GoogleProductCategory::where('slug', $categorySlug)->first();
+        if (!$category)  return abort(404);
 
         $headTag = HeadTag::first();
 
-        return view("stores.$subdomain.pages.$pageSlug", [
-            'page' => $page,
+        return view("stores.$subdomain.pages.categories.show", [
+            'store' => $this->store,
+            'category' => $category,
             'headTag' => $headTag,
             'subdomain' => $subdomain,
             'host' => $host,

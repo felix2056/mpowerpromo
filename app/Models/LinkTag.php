@@ -22,12 +22,6 @@ class LinkTag extends Model
         return $this->belongsTo(HeadTag::class);
     }
 
-    public function getIsBootstrapAttribute()
-    {
-        // check if the word Bootstrap is included the description
-        return strpos($this->attributes['description'], 'Bootstrap') !== false;
-    }
-
     public function getTagTypeAttribute()
     {
         return 'link';

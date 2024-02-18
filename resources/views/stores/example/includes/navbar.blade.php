@@ -1,7 +1,16 @@
 <div class="no-print w-100" categories="" componentid="64f8c584bedafd07266de58b" keyid="9891">
     <div title="navbar" class="container-max">
         <nav class="navbar navbar-light d-flex justify-content-between align-items-center py-2 px-0">
-            <div class="col-6 col-lg-3 pl-0 align-items-center pr-0 d-flex"><a href="#" target="_self" class="d-lg-none d-inline-block" role="button"><i class="far fa-bars fa-1x mr-3"></i></a> <a href="/" class="navbar-brand nuxt-link-active"><img alt="" class="logo" data-src="https://files.mpowerpromo.com/distributors/64f8bf17bedafd072667a712/logos/_200_200_1694023443744-ACE_Logo.jpg" src="https://files.mpowerpromo.com/distributors/64f8bf17bedafd072667a712/logos/_200_200_1694023443744-ACE_Logo.jpg" lazy="loaded"></a></div>
+            <div class="col-6 col-lg-3 pl-0 align-items-center pr-0 d-flex">
+                <a href="#" target="_self" class="d-lg-none d-inline-block" role="button">
+                    <i class="far fa-bars fa-1x mr-3"></i>
+                </a>
+
+                <a href="/" class="navbar-brand nuxt-link-active">
+                    <img alt="" class="logo" data-src="{{ $store->logo }}" src="{{ $store->logo }}" lazy="loaded">
+                </a>
+            </div>
+            
             <div class="d-none d-lg-inline-block align-items-center col-lg-6"><a href="#" target="_self" class="d-lg-none d-inline-block" role="button"><i class="far fa-bars fa-1x mr-3"></i></a>
                 <div class="">
                     <div class="d-flex">
@@ -132,137 +141,25 @@
                 <div class="megamenu-content border-top">
                     <div>
                         <section class="fdb-block">
+                            @php
+                                $navbar_categories = \App\Models\GoogleProductCategory::where('parent_id', null)->orderBy('name')->get()->chunk(6);
+                            @endphp
+                            
                             <div class="h3 mt-5 container">Promotional Products</div>
                             <div class="row container no-gutters mx-auto mb-5">
-                                <div class="col-sm-3">
-
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a href="/cat/apparel" class="nav-link pl-0">
-                                                Apparel </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/automotive" class="nav-link pl-0">
-                                                Automotive
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/bags" class="nav-link pl-0"> Bags </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/banners-mats-signs" class="nav-link pl-0">
-                                                Banners, Mats &amp; Signs
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/buttons-stickers-patches" class="nav-link pl-0">
-                                                Buttons, Stickers &amp; Patches
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/drinkware" class="nav-link pl-0">
-                                                Drinkware
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-3">
-
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a href="/cat/electronics" class="nav-link pl-0">
-                                                Electronics &amp; Technology
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/flashlights-tools" class="nav-link pl-0">
-                                                Flashlights &amp; Tools
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/food-beverage" class="nav-link pl-0">
-                                                Food &amp; Beverage
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/gift-sets-bundles" class="nav-link pl-0">
-                                                Gift Sets &amp; Bundles
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/golf" class="nav-link pl-0">
-                                                Golf Products
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/household" class="nav-link pl-0">
-                                                Household
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-3">
-                                    <ul class="nav flex-column">
-
-                                        <li class="nav-item">
-                                            <a href="/cat/keychains" class="nav-link pl-0">
-                                                Keychains
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/lanyards-badges" class="nav-link pl-0">
-                                                Lanyards &amp; Badges
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/magnets" class="nav-link pl-0">
-                                                Magnets </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/office" class="nav-link pl-0"> Office
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/outdoor" class="nav-link pl-0">
-                                                Outdoor &amp; Sporting
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/school-spirit" class="nav-link pl-0">
-                                                School &amp; Spirit
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-3">
-                                    <ul class="nav flex-column">
-
-                                        <li class="nav-item">
-                                            <a href="/cat/stationery" class="nav-link pl-0">
-                                                Stationery
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/stress-relievers-balls" class="nav-link pl-0">
-                                                Stress Balls &amp; Relievers
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/toys-games-party" class="nav-link pl-0">
-                                                Toys, Games &amp; Party
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/travel-health" class="nav-link pl-0">
-                                                Travel &amp; Health
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/cat/writing" class="nav-link pl-0">
-                                                Writing </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                @foreach ($navbar_categories as $categories)
+                                    <div class="col-sm-3">
+                                        <ul class="nav flex-column">
+                                            @foreach ($categories as $category)
+                                                <li class="nav-item">
+                                                    <a href="/cat/{{ $category->slug }}" class="nav-link pl-0">
+                                                        {{ $category->name }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endforeach
                             </div>
                         </section>
                     </div>
