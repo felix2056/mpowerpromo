@@ -34,6 +34,7 @@ class PageController extends Controller
         $headTag = HeadTag::first();
 
         return view("stores.$subdomain.pages.$pageSlug", [
+            'store' => $this->store,
             'page' => $page,
             'headTag' => $headTag,
             'subdomain' => $subdomain,
